@@ -1,0 +1,28 @@
+.transactionReportContainer
+{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.txReportExplorerLink
+{
+    color: lightgreen
+}
+
+.txReportExplorerLink:visited
+{
+    color: lightgreen
+}
+
+.txReportExplorerLink:hover
+{
+    color: green
+}
+
+@media screen and (max-width: 900px)
+{
+    .transactionReportContainer
+    {
+        width: 95%;
+    }
+}

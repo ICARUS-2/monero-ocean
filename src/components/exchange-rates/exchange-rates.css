@@ -1,0 +1,18 @@
+.exchangeRatesContainer
+{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.exchangeRatesInner
+{
+    width: 100%;
+}
+
+.exchangeRatesTable
+{
+    font-size: x-large;
+}

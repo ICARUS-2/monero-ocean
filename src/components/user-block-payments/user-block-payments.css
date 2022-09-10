@@ -1,0 +1,48 @@
+.userBlockPaymentsContainer
+{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.userBlockPaymentsPageInfo
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ubpPageButtons
+{
+    display: flex;
+}
+
+.ubpPrevPage
+{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ubpNextPage
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 900px)
+{
+    .userBlockPaymentsPageInfo
+    {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ubpSpacingDiv
+    {
+        margin-top: 10px;
+    }
+
+    .userBlockPaymentsContainer
+    {
+        width: 95%;
+    }
+}

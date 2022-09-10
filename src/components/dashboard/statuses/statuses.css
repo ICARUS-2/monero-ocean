@@ -1,0 +1,30 @@
+.dashboardStatuses
+{
+    display: flex;
+    padding: 7px;
+}
+
+.spacingDiv
+{
+    margin-right: 40px;
+}
+
+.dashboardStatusItem
+{
+    font-size: large;
+    width: 205px;
+}
+
+@media screen and (max-width: 900px)
+{
+    .dashboardStatuses
+    {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .spacingDiv
+    {
+        display: none;
+    }
+}

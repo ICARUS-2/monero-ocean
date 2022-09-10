@@ -1,0 +1,42 @@
+.infoContainer
+{
+    font-size: large;
+    padding: 25px;
+    width: 100%;
+}
+
+.infoTop
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.chartButton
+{
+    padding: 12px;
+}
+
+.spacingDiv
+{
+    margin-top: 20px;
+}
+
+.infoDisplay
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 900px)
+{
+    .infoContainer
+    {
+        width: 100%;
+    }
+
+    .infoTop
+    {
+        margin-bottom: 10px;
+    }
+}
+

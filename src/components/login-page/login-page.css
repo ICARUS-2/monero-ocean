@@ -1,0 +1,56 @@
+.loginFormContainer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.separatorDiv
+{
+    margin-top: 75px;
+}
+
+.loginForm
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.walletInput
+{
+    font-size: 40px;
+    margin: 30px;
+    border: 3px solid blue;
+}
+
+.signInButton
+{
+    font-size: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+.needAWallet
+{
+    font-size: x-large;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.moneroDownloadLink
+{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 900px)
+{
+    .walletInput
+    {
+        width: 90%;
+    }
+}

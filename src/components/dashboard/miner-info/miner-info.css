@@ -1,0 +1,24 @@
+.minerInfoContainer
+{
+    padding: 25px;
+    width: auto;
+    overflow: auto;
+}
+
+.minerTable
+{
+    width: 100%;
+}
+
+@media screen and (max-width: 900px)
+{
+    .minerInfoContainer
+    {
+        width: 100%;
+    }
+
+    .minerTable
+    {
+        min-width: 450px !important;
+    }
+}

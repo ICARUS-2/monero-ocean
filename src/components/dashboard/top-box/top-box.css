@@ -1,0 +1,35 @@
+.topBoxContainer
+{
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.statText
+{
+    font-size: large;
+}
+
+.spaceBetweenLines
+{
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 900px)
+{
+    .topBoxContainer
+    {
+        padding: 0px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .spaceBetweenLines
+    {
+        display: none;
+    }
+}

@@ -1,0 +1,51 @@
+.updateThresholdContainer
+{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.newThresholdInput
+{
+    font-size: xx-large;
+}
+
+.confirmUpdateThresholdBtn
+{
+    font-size: large;
+    margin-left: 5px;
+}
+
+.thresholdFormText
+{
+    font-size: large;
+    margin-top: 15px;
+}
+
+.updateThresholdFormInputs
+{
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 900px)
+{
+    .updateThresholdContainer
+    {
+        width: 95%;
+    }
+
+    .updateThresholdFormInputs
+    {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .confirmUpdateThresholdBtn
+    {
+        margin-left: unset;
+    }
+}

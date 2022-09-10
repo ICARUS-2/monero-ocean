@@ -1,0 +1,85 @@
+.tripleStatContainer
+{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+.tripleStatTop
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tripleStatButtons
+{
+    display: flex;
+}
+
+.boxButton
+{
+    padding: 12px;
+}
+
+.tripleStatItems
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tripleStatItem
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.statItemSpacer
+{
+    margin-top: 10px;
+}
+
+.statItemSpacerMobile
+{
+    display: none;
+}
+
+@media screen and (max-width: 900px)
+{
+    .tripleStatContainer
+    {
+        width: 100%;
+    }
+
+    .tripleStatTop
+    {
+        flex-direction: column;
+    }
+
+    .tripleStatItems
+    {
+        flex-direction: column;
+    }
+
+    .statItemSpacer
+    {
+        display: none;
+    }
+
+    .tripleStatButtons
+    {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tripleStatButtons a 
+    {
+        margin-top: 5px;
+    }
+
+    .statItemSpacerMobile
+    {
+        display: block;
+        margin-top: 20px;
+    }
+}

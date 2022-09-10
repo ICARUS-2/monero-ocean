@@ -1,0 +1,30 @@
+.recentBlockDataContainer
+{
+    padding: 25px;
+    width: auto;
+    height: 1000px;
+    overflow: auto;
+}
+
+.recentBlockDataTop
+{
+    display: flex;
+}
+
+.bpButton
+{
+    padding: 10px !important;
+}
+
+.blockDropdown
+{
+    padding: 15px;
+}
+
+@media screen and (max-width: 900px)
+{
+    .recentBlockDataContainer
+    {
+        width: 100%;
+    }
+}

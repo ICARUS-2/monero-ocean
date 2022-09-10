@@ -1,0 +1,38 @@
+.loginControls
+{
+    display: flex;
+    width: 400px;
+}
+
+.loginControlBtn
+{
+    background-color: black;
+    border: 2px solid blue;
+    font-size: x-large;
+    border-radius: 5px;
+
+    width: 100%;
+}
+
+.loginControlBtn:hover
+{
+    background-color: blue;
+}
+
+.mainBtn
+{
+    flex: 2
+}
+
+.logoutBtn
+{
+    flex: 1
+}
+
+@media screen and (max-width: 900px)
+{
+    .loginControls
+    {
+        flex-direction: column;
+    }
+}

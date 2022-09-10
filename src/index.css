@@ -1,0 +1,113 @@
+/*CSS reset*/
+*
+{
+    margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+    box-sizing: border-box;
+
+    /*font-family: 'Courier New', Courier, monospace;*/
+
+    font-size: 100%;
+    font-family: Helvetica;
+    color: white;    
+}
+
+body
+{
+    background-color: black !important;
+}
+
+.unstyledLink
+{
+    text-decoration: none;
+    color: white;
+}
+
+.unstyledLink:visited
+{
+    text-decoration: none;
+    color: white;
+}
+
+.unstyledLink:hover
+{
+    color: lightgray
+}
+
+.boxComponent, .boxButton, .dashboardBoxComponent
+{
+    border: 1px solid blue !important;
+    background-color: black !important;
+    border-radius: 5px !important;
+}
+
+.boxButton
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+.boxButton:hover 
+{
+    color: white;
+    background-color: blue !important;
+    text-decoration: none;
+}
+
+.dashboardBoxComponent, .dashboardComponent
+{
+    margin: 7px;
+}
+
+.statText
+{
+    color: lightgreen !important;
+}
+
+.statHeader
+{
+    font-size: large;
+    font-weight: 500;
+}
+
+.scrollbar::-webkit-scrollbar 
+{
+    width: 10px;
+    height: 10px;
+    background-color: transparent; 
+}
+
+.scrollbar::-webkit-scrollbar-thumb 
+{
+    border-radius: 2px;
+    background-color: rgb(30,30,30); 
+}
+
+.scrollbar::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+.lightGreenText
+{
+    color: lightgreen;
+}
+
+.limeText
+{
+    color: lime;
+}
+
+.redText
+{
+    color: red;
+}
+
+.yellowText
+{
+    color: yellow;
+}
