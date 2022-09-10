@@ -23,7 +23,7 @@ const UpdateThreshold = () => {
     {
         let userAddress = LocalStorageHelper.getMoneroAddress();
 
-        if (userAddress != null)
+        if (userAddress !== null)
         {
             let result = await DependencyContainer.moneroOceanClient.getUserInfo(userAddress)
 
@@ -98,7 +98,7 @@ const UpdateThreshold = () => {
 
             <div className='m-1'></div>
 
-            {apiError != "" &&
+            {apiError !== "" &&
                 <div className='alert alert-danger'>
                     {apiError}
                 </div>

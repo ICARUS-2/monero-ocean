@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import DependencyContainer from '../../lib/dependencies';
 import UserBlockPaymentRecord from '../../models/user-block-payments/user-block-payment-record';
 import './user-block-payments.css'
@@ -8,7 +8,6 @@ import SiteRoutes from './../../lib/site-routes';
 import LocalStorageHelper from '../../lib/local-storage-helper';
 import { getDataByPort } from '../../lib/coins';
 import DateTimeFormatter from '../../lib/datetime-formatter';
-import CurrencyHelper from './../../lib/currency-helper';
 
 const UserBlockPayments = () => {
 

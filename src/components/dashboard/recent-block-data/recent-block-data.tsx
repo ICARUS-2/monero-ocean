@@ -1,9 +1,6 @@
-import './recent-block-data.css'
-import Dropdown from 'react-bootstrap/Dropdown';
+import './recent-block-data.css';
 import RecentBlockDataModel from './../../../models/recent-block-data-model';
-import { useState } from 'react';
 import DateTimeFormatter from '../../../lib/datetime-formatter';
-import Form from 'react-bootstrap/Form';
 import { getPortsArray, getDataByPort, getMoneroPort } from '../../../lib/coins';
 import { Link } from 'react-router-dom';
 import SiteRoutes from '../../../lib/site-routes';

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import DependencyContainer from '../../../lib/dependencies'
+import { useEffect, useState } from 'react'
 import './single-chart.css'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis} from 'recharts';
 import DateTimeFormatter from '../../../lib/datetime-formatter';
 import useInterval from '../../../lib/hooks/use-interval';
 import ChartPointModel from './../../../models/charts/chart-point-model';

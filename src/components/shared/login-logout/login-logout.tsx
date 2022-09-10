@@ -5,11 +5,6 @@ import LocalStorageHelper from '../../../lib/local-storage-helper';
 import { useNavigate } from 'react-router-dom';
 import SiteRoutes from '../../../lib/site-routes';
 
-class Props 
-{
-
-}
-
 const LoginLogout = () => {
 
   const [showLogout, setShowLogout] = useState(false);

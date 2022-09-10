@@ -3,12 +3,8 @@ import './navbar.css'
 import LoginLogout from '../login-logout/login-logout';
 import { Link } from 'react-router-dom';
 import SiteRoutes from './../../../lib/site-routes';
-import SignInHelper from './../../../lib/sign-in-helper';
-import LocalStorageHelper from '../../../lib/local-storage-helper';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import DependencyContainer from './../../../lib/dependencies';
-import TestMoneroOceanClient from './../../../lib/monero-ocean-client/test-monero-ocean-client';
 
 const NavbarComponent = () => {
   const location = useLocation();
@@ -21,7 +17,7 @@ const NavbarComponent = () => {
     
     <div className='pageNavbar'>
       <div>
-        <img src={logo} className='moLogo'></img>
+        <img src={logo} className='moLogo' alt='MoneroOcean Logo'></img>
         <Link to={SiteRoutes.getBaseRoute()} className='unstyledLink homeLink'>MoneroOcean</Link>
       </div>
 

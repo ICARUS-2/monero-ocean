@@ -7,12 +7,10 @@ import RecentBlockData from '../recent-block-data/recent-block-data';
 import TripleStat from '../triple-stat/triple-stat';
 import ButtonLinkModel from '../../../models/button-link-model';
 import MinerInfo from '../miner-info/miner-info';
-import TestMoneroOceanClient from '../../../lib/monero-ocean-client/test-monero-ocean-client';
 import DependencyContainer from '../../../lib/dependencies';
 import NetworkStatsModel from '../../../models/network-stats/network-stats-model';
 import HashrateConverter from '../../../lib/hashrate-converter';
 import PoolStatsModel from '../../../models/pool-stats/pool-stats-model';
-import { useNavigate } from 'react-router-dom';
 import SignInHelper from '../../../lib/sign-in-helper';
 import SiteRoutes from '../../../lib/site-routes';
 import MinerStatsModel from '../../../models/miner-stats/miner-stats-model';
@@ -27,7 +25,6 @@ import SettingsHelper from './../../../lib/settings-helper';
 import useInterval from '../../../lib/hooks/use-interval';
 
 const MainDashboard = () => {
-  let navigate = useNavigate();
 
   //API calls
   const [networkModel, setNetworkModel] = useState(new NetworkStatsModel())
@@ -172,7 +169,7 @@ const MainDashboard = () => {
     fetchAndSetBlockData();
   }, [selectedRBDPort])
 
-  let interval = useInterval(
+  useInterval(
     () =>
     {
       updateDashboard()
