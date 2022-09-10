@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/monero-ocean/static/css/main.003915d8.css",
+    "main.js": "/monero-ocean/static/js/main.70471855.js",
+    "static/js/787.a129da09.chunk.js": "/monero-ocean/static/js/787.a129da09.chunk.js",
+    "static/media/mo-logo.webp": "/monero-ocean/static/media/mo-logo.487d00c2270a87b60276.webp",
+    "index.html": "/monero-ocean/index.html",
+    "main.003915d8.css.map": "/monero-ocean/static/css/main.003915d8.css.map",
+    "main.70471855.js.map": "/monero-ocean/static/js/main.70471855.js.map",
+    "787.a129da09.chunk.js.map": "/monero-ocean/static/js/787.a129da09.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.003915d8.css",
+    "static/js/main.70471855.js"
+  ]
+}
