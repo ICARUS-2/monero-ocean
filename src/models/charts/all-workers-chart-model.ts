@@ -25,7 +25,7 @@ export default class AllWorkersChartModel
 
                 return new AllWorkersChartModel(key, parsedData);
             } )
-            
+
         return arr;
     }
 }

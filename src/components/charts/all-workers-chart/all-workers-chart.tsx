@@ -6,11 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import SiteRoutes from './../../../lib/site-routes';
 import LocalStorageHelper from "../../../lib/local-storage-helper";
 import AllWorkersChartModel from "../../../models/charts/all-workers-chart-model";
+import SingleChart from "../single-chart/single-chart";
+import HashrateConverter from './../../../lib/hashrate-converter';
 
 const AllWorkersChart = () => {
 
     const [delay, setDelay] = useState<number>(60000);
-    const [chartData, setChartData] = useState<AllWorkersChartModel[]>([])
+    const [chartData, setChartData] = useState<AllWorkersChartModel[]>([]);
+    const [errorCallingApi, setErrorCallingApi] = useState<boolean>(false);
+
     const navigate = useNavigate();
 
     const fetchStats = async () =>
@@ -22,7 +26,12 @@ const AllWorkersChart = () => {
             {
                 let result = await DependencyContainer.moneroOceanClient.getAllWorkersChart(address)
                 
-                
+                if (result != null)
+                {
+                    setChartData(result);
+                }
+
+                setErrorCallingApi(result == null)
             }
         }
         else
@@ -42,7 +51,19 @@ const AllWorkersChart = () => {
     }, delay );
 
     return (
-        <div>AllWorkersChart</div>
+        <div>
+            {
+                chartData.map( ( data ) =>
+                {
+                    return <SingleChart 
+                        chartData={data.chartEntries} 
+                        errorCallingApi={errorCallingApi} 
+                        headerText={data.workerId} 
+                        statFormat={HashrateConverter.parseHashrate}
+                        height={170}/>
+                } )
+            }
+        </div>
     )
 }
 

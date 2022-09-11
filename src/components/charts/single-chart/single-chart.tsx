@@ -9,13 +9,14 @@ class Props
     chartData: ChartPointModel[] = [];
     errorCallingApi: boolean = false;
     headerText: string = "";
+    height: number = 300;
     statFormat = (a: string) : string =>
     {
       return a;
     }
 }
 
-const SingleChart = ({chartData, errorCallingApi, headerText, statFormat} : Props) => {
+const SingleChart = ({chartData, errorCallingApi, headerText, statFormat, height} : Props) => {
     
     const [currentCount, setCurrentCount] = useState<number>(0)
     const [dayChange, setDayChange] = useState<number>(0);
@@ -93,7 +94,7 @@ const SingleChart = ({chartData, errorCallingApi, headerText, statFormat} : Prop
 
         <LineChart className='singleChart'
         width={browserWidth * 0.9}
-        height={300}
+        height={height}
         data={chartData}
         margin={{
           top: 5,

@@ -16,10 +16,11 @@ class Props
     return a;
   }
 
+  height: number = 300;
   headerText: string = "";
 }
 
-const SingleChartRefresh = ( {pullChartData, headerText, statFormat}: Props ) => {
+const SingleChartRefresh = ( { headerText, height ,pullChartData, statFormat }: Props ) => {
 
   const [chartData, setChartData] = useState<ChartPointModel[]>([])
   const [refreshDelay, setRefreshDelay] = useState<number>(4000);
@@ -52,7 +53,12 @@ const SingleChartRefresh = ( {pullChartData, headerText, statFormat}: Props ) =>
   }, refreshDelay )
   
   return (
-    <SingleChart chartData={chartData} errorCallingApi={errorCallingApi} headerText={headerText} statFormat={statFormat}/>
+    <SingleChart 
+      chartData={chartData} 
+      errorCallingApi={errorCallingApi} 
+      headerText={headerText} 
+      statFormat={statFormat}
+      height={height}/>
   )
 }
 

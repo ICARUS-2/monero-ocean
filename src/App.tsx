@@ -43,7 +43,7 @@ function App() {
           <Route path={SiteRoutes.getExchangeRatesRoute()} element={<ExchangeRates />}></Route>
           <Route path={SiteRoutes.getSettingsRoute()} element={<Settings />}></Route>
           <Route path={SiteRoutes.getCoinsRoute()} element={<Coins />}></Route> 
-          <Route path={SiteRoutes.getConnectedMinersChartRoute()} element={<SingleChartRefresh headerText='Connected Miners: ' pullChartData={DependencyContainer.moneroOceanClient.getConnectedMinersChart.bind(DependencyContainer.moneroOceanClient)}/>}></Route>
+          <Route path={SiteRoutes.getConnectedMinersChartRoute()} element={<SingleChartRefresh headerText='Connected Miners: ' pullChartData={DependencyContainer.moneroOceanClient.getConnectedMinersChart.bind(DependencyContainer.moneroOceanClient)} height={300}/>}></Route>
 
           {/*Authentication required*/}
           <Route path={SiteRoutes.getUserTransactionReportRoute()} element={<TransactionReport />}></Route>
@@ -60,7 +60,7 @@ function App() {
               //@ts-ignore
               return DependencyContainer.moneroOceanClient.getUserGlobalHashrateChart(LocalStorageHelper.getMoneroAddress());
             }
-          } statFormat={HashrateConverter.parseHashrate}/>}></Route>
+          } statFormat={HashrateConverter.parseHashrate} height={300}/>}></Route>
           <Route path={SiteRoutes.getAllWorkersChartRoute()} element={<AllWorkersChart />}></Route>
 
           {/*404*/}
