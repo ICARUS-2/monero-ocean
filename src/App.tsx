@@ -19,6 +19,7 @@ import TestMoneroOceanClient from './lib/monero-ocean-client/test-monero-ocean-c
 import LocalStorageHelper from './lib/local-storage-helper';
 import SignInHelper from './lib/sign-in-helper';
 import HashrateConverter from './lib/hashrate-converter';
+import AllWorkersChart from './components/charts/all-workers-chart/all-workers-chart';
 
 function App() {
 
@@ -60,6 +61,7 @@ function App() {
               return DependencyContainer.moneroOceanClient.getUserGlobalHashrateChart(LocalStorageHelper.getMoneroAddress());
             }
           } statFormat={HashrateConverter.parseHashrate}/>}></Route>
+          <Route path={SiteRoutes.getAllWorkersChartRoute()} element={<AllWorkersChart />}></Route>
 
           {/*404*/}
           <Route path='*' element={<ErrorPage />}></Route>

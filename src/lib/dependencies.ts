@@ -4,5 +4,5 @@ import TestMoneroOceanClient from "./monero-ocean-client/test-monero-ocean-clien
 
 export default class DependencyContainer
 {
-    static moneroOceanClient: IMoneroOceanClient = new MoneroOceanClient();
+    static moneroOceanClient: IMoneroOceanClient = new TestMoneroOceanClient();
 }

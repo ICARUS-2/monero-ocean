@@ -1,3 +1,4 @@
+import allWorkersChartModel from "../../models/charts/all-workers-chart-model";
 import ChartPointModel from "../../models/charts/chart-point-model";
 import AllWorkersModel from "../../models/miner-stats/all-workers-model";
 import MinerStatsModel from "../../models/miner-stats/miner-stats-model";
@@ -274,4 +275,9 @@ export default class MoneroOceanClient implements IMoneroOceanClient
             return null;
         }
     }   
+
+    async getAllWorkersChart(address: string): Promise<allWorkersChartModel[] | null> 
+    {
+        throw new Error("Not implemented")   
+    }
 }
