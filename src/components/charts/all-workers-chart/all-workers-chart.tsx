@@ -5,10 +5,12 @@ import SignInHelper from './../../../lib/sign-in-helper';
 import { useNavigate } from 'react-router-dom';
 import SiteRoutes from './../../../lib/site-routes';
 import LocalStorageHelper from "../../../lib/local-storage-helper";
+import AllWorkersChartModel from "../../../models/charts/all-workers-chart-model";
 
 const AllWorkersChart = () => {
 
-    const [delay, setDelay] = useState(60000)
+    const [delay, setDelay] = useState<number>(60000);
+    const [chartData, setChartData] = useState<AllWorkersChartModel[]>([])
     const navigate = useNavigate();
 
     const fetchStats = async () =>
@@ -20,7 +22,7 @@ const AllWorkersChart = () => {
             {
                 let result = await DependencyContainer.moneroOceanClient.getAllWorkersChart(address)
                 
-                console.log(result)
+                
             }
         }
         else
