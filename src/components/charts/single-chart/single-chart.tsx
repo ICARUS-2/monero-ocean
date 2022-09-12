@@ -1,101 +1,91 @@
+
 import { useEffect, useState } from 'react'
-import './single-chart.css'
-import { LineChart, Line, XAxis, YAxis} from 'recharts';
+import { Line, LineChart, XAxis, YAxis } from 'recharts';
 import DateTimeFormatter from '../../../lib/datetime-formatter';
-import useInterval from '../../../lib/hooks/use-interval';
-import ChartPointModel from './../../../models/charts/chart-point-model';
+import ChartPointModel from '../../../models/charts/chart-point-model'
 
 class Props
 {
-  pullChartData = (): Promise<ChartPointModel[] | null> =>
-  {
-    return Promise.resolve([])
-  }
-
-  statFormat = (a: string) : string =>
-  {
-    return a;
-  }
-
-  headerText: string = "";
+    chartData: ChartPointModel[] = [];
+    errorCallingApi: boolean = false;
+    headerText: string = "";
+    height: number = 300;
+    statFormat = (a: string) : string =>
+    {
+      return a;
+    }
 }
 
-const SingleChart = ( {pullChartData, headerText, statFormat}: Props ) => {
+const SingleChart = ({chartData, errorCallingApi, headerText, statFormat, height} : Props) => {
+    
+    const [currentCount, setCurrentCount] = useState<number>(0)
+    const [dayChange, setDayChange] = useState<number>(0);
+    const [average, setAverage] = useState<number>(0);
+    const [browserWidth, setBrowserWidth] = useState<number>(window.innerWidth);
 
-  const [chartData, setChartData] = useState<ChartPointModel[]>([])
-  const [currentCount, setCurrentCount] = useState<number>(0)
-  const [dayChange, setDayChange] = useState<number>(0);
-  const [average, setAverage] = useState<number>(0);
-  const [browserWidth, setBrowserWidth] = useState<number>(window.innerWidth);
-  const [refreshDelay, setRefreshDelay] = useState<number>(60000);
-
-  const [errorCallingApi, setErrorCallingApi] = useState<boolean>(false);
-
-  //Chart fetching
-  const fetchChartData = async () =>
-  {
-    let result = await pullChartData();
-    if (result)
+    useEffect( () =>
     {
-      setChartData(result);
-      setErrorCallingApi(false);
-    }
-    else
-    {
-      setErrorCallingApi(true);
-    }
-  }
-
-  useEffect( () =>
-  {
-    fetchChartData();
-  }, [] )
-
-  useInterval( () =>
-  {
-    fetchChartData();
-  }, refreshDelay )
-
-  useEffect( () =>
-  {
-    if(chartData.length)
-    {
-      setCurrentCount(chartData[chartData.length-1].y)
-
-      let firstEntry = chartData[0].y;
-      let lastEntry = chartData[chartData.length-1].y
-
-      //set change from start to finish
-      let diff = ((lastEntry / firstEntry * 100)-100).toFixed(2)
-      setDayChange(Number(diff))
-
-      //set the average
-      let accumulator: number = 0;
-      chartData.forEach( (d: ChartPointModel)=>
+      if(chartData.length)
       {
-        accumulator += d.y;
-      } )
-      let avg = accumulator / chartData.length;
-      setAverage(avg);
-    }
-  }, [chartData] )
-
-
-  //Window resizing
-  useEffect(() => {
-    window.addEventListener('resize', handleWindowSizeChange);
-    return () => {
-        window.removeEventListener('resize', handleWindowSizeChange);
-    };
-  }, []);
-
-  const handleWindowSizeChange = () => {
-    setBrowserWidth(window.innerWidth);
-  };
-
+        setCurrentCount(chartData[chartData.length-1].y)
   
-  return (
-    <div className='singleChartContainer'>
+        let firstEntry = chartData[0].y;
+        let lastEntry = chartData[chartData.length-1].y
+  
+        //set change from start to finish
+        let diff = ((lastEntry / firstEntry * 100)-100).toFixed(2)
+        setDayChange(Number(diff))
+  
+        //set the average
+        let accumulator: number = 0;
+        chartData.forEach( (d: ChartPointModel)=>
+        {
+          accumulator += d.y;
+        } )
+        let avg = accumulator / chartData.length;
+        setAverage(avg);
+      }
+    }, [chartData] )
+
+    useEffect( () =>
+    {
+      if(chartData.length)
+      {
+        setCurrentCount(chartData[chartData.length-1].y)
+  
+        let firstEntry = chartData[0].y;
+        let lastEntry = chartData[chartData.length-1].y
+  
+        //set change from start to finish
+        let diff = ((lastEntry / firstEntry * 100)-100).toFixed(2)
+        setDayChange(Number(diff))
+  
+        //set the average
+        let accumulator: number = 0;
+        chartData.forEach( (d: ChartPointModel)=>
+        {
+          accumulator += d.y;
+        } )
+        let avg = accumulator / chartData.length;
+        setAverage(avg);
+      }
+    }, [chartData] )
+
+    //Window resizing
+    const handleWindowSizeChange = () => 
+    {
+        setBrowserWidth(window.innerWidth);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        };
+    }, []);
+
+    return (
+        <div className='singleChartContainer'>
         {errorCallingApi &&
           <div className='alert alert-danger'>Error retrieving data</div>
         }
@@ -104,7 +94,7 @@ const SingleChart = ( {pullChartData, headerText, statFormat}: Props ) => {
 
         <LineChart className='singleChart'
         width={browserWidth * 0.9}
-        height={300}
+        height={height}
         data={chartData}
         margin={{
           top: 5,
@@ -119,17 +109,7 @@ const SingleChart = ( {pullChartData, headerText, statFormat}: Props ) => {
         <Line type="monotone" dot={false} dataKey="y" stroke={"cyan"}/>
       </LineChart>
     </div>
-  )
-}
-
-SingleChart.defaultProps = 
-{
-  statFormat :(a: string) : string =>
-  {
-    return a;
-  },
-
-  headerText: "Chart Header"
+    )
 }
 
 export default SingleChart

@@ -13,12 +13,13 @@ import TransactionReport from './components/transaction-report/transaction-repor
 import UserBlockPayments from './components/user-block-payments/user-block-payments';
 import UpdateThreshold from './components/update-threshold/update-threshold';
 import ExchangeRates from './components/exchange-rates/exchange-rates';
-import SingleChart from './components/charts/single-chart/single-chart';
+import SingleChartRefresh from './components/charts/single-chart/single-chart-refresh';
 import DependencyContainer from './lib/dependencies';
 import TestMoneroOceanClient from './lib/monero-ocean-client/test-monero-ocean-client';
 import LocalStorageHelper from './lib/local-storage-helper';
 import SignInHelper from './lib/sign-in-helper';
 import HashrateConverter from './lib/hashrate-converter';
+import AllWorkersChart from './components/charts/all-workers-chart/all-workers-chart';
 
 function App() {
 
@@ -42,13 +43,13 @@ function App() {
           <Route path={SiteRoutes.getExchangeRatesRoute()} element={<ExchangeRates />}></Route>
           <Route path={SiteRoutes.getSettingsRoute()} element={<Settings />}></Route>
           <Route path={SiteRoutes.getCoinsRoute()} element={<Coins />}></Route> 
-          <Route path={SiteRoutes.getConnectedMinersChartRoute()} element={<SingleChart headerText='Connected Miners: ' pullChartData={DependencyContainer.moneroOceanClient.getConnectedMinersChart.bind(DependencyContainer.moneroOceanClient)}/>}></Route>
+          <Route path={SiteRoutes.getConnectedMinersChartRoute()} element={<SingleChartRefresh headerText='Connected Miners: ' pullChartData={DependencyContainer.moneroOceanClient.getConnectedMinersChart.bind(DependencyContainer.moneroOceanClient)} height={300}/>}></Route>
 
           {/*Authentication required*/}
           <Route path={SiteRoutes.getUserTransactionReportRoute()} element={<TransactionReport />}></Route>
           <Route path={SiteRoutes.getUserBlockPaymentsRoute()} element={<UserBlockPayments />}></Route>
           <Route path={SiteRoutes.getUpdateThresholdRoute()} element={<UpdateThreshold />}></Route>
-          <Route path={SiteRoutes.getUserGlobalHashrateChartRoute()} element={<SingleChart headerText='Pay Hashrate: ' pullChartData={ 
+          <Route path={SiteRoutes.getUserGlobalHashrateChartRoute()} element={<SingleChartRefresh headerText='Pay Hashrate: ' pullChartData={ 
             () =>
             {
               if (!SignInHelper.isSignedIn)
@@ -59,7 +60,8 @@ function App() {
               //@ts-ignore
               return DependencyContainer.moneroOceanClient.getUserGlobalHashrateChart(LocalStorageHelper.getMoneroAddress());
             }
-          } statFormat={HashrateConverter.parseHashrate}/>}></Route>
+          } statFormat={HashrateConverter.parseHashrate} height={300}/>}></Route>
+          <Route path={SiteRoutes.getAllWorkersChartRoute()} element={<AllWorkersChart />}></Route>
 
           {/*404*/}
           <Route path='*' element={<ErrorPage />}></Route>

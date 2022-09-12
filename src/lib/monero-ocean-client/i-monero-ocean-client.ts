@@ -7,6 +7,7 @@ import PoolStatsModel from "../../models/pool-stats/pool-stats-model";
 import RecentBlockDataModel from "../../models/recent-block-data-model";
 import TransactionDataModel from "../../models/transactions/transaction-data-model";
 import UserBlockPaymentRecord from './../../models/user-block-payments/user-block-payment-record';
+import AllWorkersChartModel from './../../models/charts/all-workers-chart-model';
 
 export default interface IMoneroOceanClient
 {
@@ -36,4 +37,6 @@ export default interface IMoneroOceanClient
     getConnectedMinersChart(): Promise<ChartPointModel[] | null>;
 
     getUserGlobalHashrateChart(address: string): Promise<ChartPointModel[] | null>;
+
+    getAllWorkersChart(address: string): Promise<AllWorkersChartModel[] | null>
 }

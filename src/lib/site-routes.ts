@@ -59,4 +59,9 @@ export default class SiteRoutes
     {
         return SiteRoutes.getBaseRoute() + "/miner-hashrates"
     }
+
+    static getAllWorkersChartRoute(): string 
+    {
+        return SiteRoutes.getBaseRoute() + "/all-workers"
+    }
 }

@@ -5,6 +5,12 @@
     overflow: auto;
 }
 
+.minerInfoHeader
+{
+    display: flex;
+    justify-content: space-between;
+}
+
 .minerTable
 {
     width: 100%;

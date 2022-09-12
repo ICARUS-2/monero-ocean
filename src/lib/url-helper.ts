@@ -69,4 +69,9 @@ export default class ApiRoutes
     {
         return this.getBaseUrl() + `user/updateThreshold`
     }
+
+    static getAllWorkersChartRoute(address: string)
+    {
+        return this.getUserGlobalHashrateChartRoute(address) + "/allworkers" 
+    }
 }

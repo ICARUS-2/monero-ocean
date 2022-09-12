@@ -1,3 +1,4 @@
+import AllWorkersChartModel from "../../models/charts/all-workers-chart-model";
 import ChartPointModel from "../../models/charts/chart-point-model";
 import AllWorkersModel from "../../models/miner-stats/all-workers-model";
 import MinerStatsModel from "../../models/miner-stats/miner-stats-model";
@@ -11,7 +12,6 @@ import TransactionDataModel from "../../models/transactions/transaction-data-mod
 import UserBlockPaymentRecord from "../../models/user-block-payments/user-block-payment-record";
 import ApiRoutes from "../url-helper";
 import IMoneroOceanClient from "./i-monero-ocean-client";
-import TestMoneroOceanClient from "./test-monero-ocean-client";
 
 export default class MoneroOceanClient implements IMoneroOceanClient
 {
@@ -274,4 +274,24 @@ export default class MoneroOceanClient implements IMoneroOceanClient
             return null;
         }
     }   
+
+    async getAllWorkersChart(address: string): Promise<AllWorkersChartModel[] | null> 
+    {
+        try 
+        {
+            let result = await fetch(ApiRoutes.getAllWorkersChartRoute(address));
+
+            if (result.ok)
+            {
+                let json = await result.json();
+                return AllWorkersChartModel.listFromJson(json);
+            }
+
+            return null;
+        }
+        catch(err)
+        {
+            return null;
+        }
+    }
 }

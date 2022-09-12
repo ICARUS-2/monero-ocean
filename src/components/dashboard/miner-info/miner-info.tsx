@@ -4,6 +4,8 @@ import { useState } from 'react'
 import AllWorkersModel from '../../../models/miner-stats/all-workers-model';
 import IndividualMinerModel from '../../../models/miner-stats/individual-miner-model';
 import HashrateConverter from '../../../lib/hashrate-converter';
+import { Link } from 'react-router-dom';
+import SiteRoutes from '../../../lib/site-routes';
 
 class Props 
 {
@@ -14,8 +16,10 @@ const MinerInfo = ({miner} : Props) => {
 
     return (
     <div className='minerInfoContainer dashboardBoxComponent scrollbar'>
-        <div className='statHeader'>Miner Info</div>
-        <br></br>
+        <div className='statHeader minerInfoHeader'>
+            <span>Miner Info</span>
+            <Link to={SiteRoutes.getAllWorkersChartRoute()} className="boxButton">Chart - All Workers</Link>
+        </div>
         <div className='statText'>Total Shares: ({miner.totalSharesAccepted}/{miner.totalSharesRejected})</div>
         
         <br />
