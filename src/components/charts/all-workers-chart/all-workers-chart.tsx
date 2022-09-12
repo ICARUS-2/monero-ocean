@@ -53,9 +53,9 @@ const AllWorkersChart = () => {
     return (
         <div>
             {
-                chartData.map( ( data ) =>
+                chartData.map( ( data, index ) =>
                 {
-                    return <SingleChart 
+                    return <SingleChart key={index}
                         chartData={data.chartEntries} 
                         errorCallingApi={errorCallingApi} 
                         headerText={data.workerId} 
