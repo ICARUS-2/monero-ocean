@@ -20,6 +20,8 @@ import LocalStorageHelper from './lib/local-storage-helper';
 import SignInHelper from './lib/sign-in-helper';
 import HashrateConverter from './lib/hashrate-converter';
 import AllWorkersChart from './components/charts/all-workers-chart/all-workers-chart';
+import ThemeProvider from 'react-bootstrap/esm/ThemeProvider';
+
 
 function App() {
 
